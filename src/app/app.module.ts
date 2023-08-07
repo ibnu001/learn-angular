@@ -10,6 +10,7 @@ import { HeaderComponent } from './shared.component/header/header.component';
 import { FooterComponent } from './shared.component/footer/footer.component';
 import { SidebarComponent } from './shared.component/sidebar/sidebar.component';
 import { BodyComponent } from './shared.component/body/body.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BodyComponent } from './shared.component/body/body.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    BodyComponent
+    BodyComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
