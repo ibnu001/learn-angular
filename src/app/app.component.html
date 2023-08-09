@@ -1,26 +1,41 @@
-<!--<hello-world></hello-world>-->
-<!--<ibnu-hello-guys></ibnu-hello-guys>-->
-<!--<app-alfat></app-alfat>-->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  <title>Document</title>
-</head>
-<body>
-<!--  <app-header></app-header>-->
-<!--  <app-sidebar></app-sidebar>-->
-<!--  <app-body></app-body>-->
-<!--  <app-footer></app-footer>-->
+<!--&lt;!&ndash;<hello-world></hello-world>&ndash;&gt;-->
+<!--&lt;!&ndash;<ibnu-hello-guys></ibnu-hello-guys>&ndash;&gt;-->
+<!--&lt;!&ndash;<app-alfat></app-alfat>&ndash;&gt;-->
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport"-->
+<!--        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--  <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>-->
+<!--  <title>Document</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;  <app-header></app-header>&ndash;&gt;-->
+<!--&lt;!&ndash;  <app-sidebar></app-sidebar>&ndash;&gt;-->
+<!--&lt;!&ndash;  <app-body></app-body>&ndash;&gt;-->
+<!--&lt;!&ndash;  <app-footer></app-footer>&ndash;&gt;-->
 
-<!--<hello-world></hello-world>-->
-<div>
+<!--&lt;!&ndash;<hello-world></hello-world>&ndash;&gt;-->
+<!--<div>-->
+<!--  <app-login></app-login>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<div style="width: 100vw; height: 100vh">
+  <h4 [ngStyle]="styles" style="position: relative; z-index: 100" class="text-center mt-5">Who is me? who is you? we are happy meyou wkwkwk</h4>
+  <h4 [innerHTML]="fullname" style="position: relative; z-index: 100" class="text-center mt-5"></h4>
+
+  <button class="btn btn-primary" [disabled]="isDisabled">tekan aku</button>
+
+  <h1 [ngStyle]="numStyles">{{num}}</h1>
+
+  <button (click)="increment()" class="btn btn-secondary">Increment</button>
+
+  <img [src]="imgSrc" [alt]="imgAlt" class="card-img-overlay" style="position: absolute; z-index: -999; height: 100vh; width: 100vw">
   <app-login></app-login>
 </div>
-</body>
-</html>
 
