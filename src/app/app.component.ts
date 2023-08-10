@@ -6,77 +6,35 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'first-app';
 
-  imgSrc: string = 'assets/images/ari.jpg'
-  imgAlt: string = 'ARIIII'
+  title: string = 'title from parent'
 
-  fullname: string = 'My name is <strong> Ibnu </strong>'
-  color: string = 'blue'
+  todo: string = ''
+  description: string = ''
+  todoList: { todo: string, desc: string, isDone: boolean, doneLabel: string}[] = []
 
-  styles = {
-    color: '#fff',
-    fontSize: '2rem',
-    fontWeight: '600',
+  onTodo(evTodo: any): void {
+    this.todo = evTodo.target.value
   }
 
-  isDisabled: boolean = false
-
-  num: number = 0
-
-  numStyles = {
-    color: 'blue'
+  onDescription(evDes: any): void {
+    this.description = evDes.target.value
   }
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.isDisabled = !this.isDisabled
-    }, 2000)
-  }
-
-  increment() {
-    const interval = setInterval(() => {
-      this.num++
-      if (this.num > 5) {
-        this.numStyles.color = 'red'
+  tambah() {
+    if (this.todo && this.description) {
+      const todo = {
+        todo: this.todo,
+        desc: this.description,
+        isDone: false,
+        doneLabel: 'Done'
       }
 
-      if (this.num >= 10) {
-        clearInterval(interval)
-        this.num = 10
-      }
-    }, 1000)
+      this.todoList.push(todo)
+      this.description = ''
+    }
 
-
-    // if (this.num === 10) {
-    //   clearInterval()
-    // }
+    console.log(this.todoList)
   }
-
-
-  message: string = "<h1>Mouse Hovew me mew ≽^•⩊•^≼</h1>"
-
-  mOver(): void {
-    this.message = '<h1>Thanks fow hovew me mew ≽^•⩊•^≼</h1>'
-  }
-
-  mOut(): void {
-    this.message = '<h1>Hovew me again mew ≽^•⩊•^≼</h1>'
-  }
-
-  name: string = ''
-  onKeyPress(ev: any): void {
-    console.log(ev)
-    console.log("---")
-    console.log(ev.target.value)
-    console.log("---")
-    console.log(ev.data)
-    console.log("---")
-    this.name = ev.target.value
-  }
-
-  tes: any[] = []
-  isActive: boolean = false
-
 
 }

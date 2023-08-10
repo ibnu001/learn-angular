@@ -1,0 +1,26 @@
+<p>CHILD COMPONENT: {{childTitle}}</p>
+
+<table class="table table-bordered" style="width: 100%">
+  <thead>
+  <tr>
+    <th class="text-center" style="width: 3rem" scope="col">No</th>
+    <th class="text-center" scope="col">Todo</th>
+    <th class="text-center" scope="col">Description</th>
+    <th class="text-center" style="width: 15rem" scope="col">Action</th>
+  </tr>
+  </thead>
+
+  <tbody class="table-group-divider">
+  <tr *ngFor="let itemTodo of todoList; let i = index">
+    <td class="text-center">{{i + 1}}</td>
+    <td [style.text-decoration]="itemTodo.isDone ? 'line-through':'none'">{{itemTodo.todo}}</td>
+    <td [style.text-decoration]="itemTodo.isDone ? 'line-through':'none'">{{itemTodo.desc}}</td>
+      <td class="text-center">
+        <div class="btn-group">
+          <button type="button" (click)="isDone(i)" class="btn btn-outline-warning" style="width: 5rem">{{itemTodo.doneLabel}}</button>
+          <button type="button" (click)="delete(i)" class="btn btn-outline-danger" style="width: 5rem">Delete</button>
+        </div>
+      </td>
+  </tr>
+  </tbody>
+</table>

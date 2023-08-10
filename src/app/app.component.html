@@ -1,65 +1,14 @@
-<!--&lt;!&ndash;<hello-world></hello-world>&ndash;&gt;-->
-<!--&lt;!&ndash;<ibnu-hello-guys></ibnu-hello-guys>&ndash;&gt;-->
-<!--&lt;!&ndash;<app-alfat></app-alfat>&ndash;&gt;-->
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--  <meta charset="UTF-8">-->
-<!--  <meta name="viewport"-->
-<!--        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--  <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>-->
-<!--  <title>Document</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--&lt;!&ndash;  <app-header></app-header>&ndash;&gt;-->
-<!--&lt;!&ndash;  <app-sidebar></app-sidebar>&ndash;&gt;-->
-<!--&lt;!&ndash;  <app-body></app-body>&ndash;&gt;-->
-<!--&lt;!&ndash;  <app-footer></app-footer>&ndash;&gt;-->
+<p>PARENT:- {{title}}</p>
 
-<!--&lt;!&ndash;<hello-world></hello-world>&ndash;&gt;-->
-<!--<div>-->
-<!--  <app-login></app-login>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
+<div class="d-flex flex-column mt-3">
+  <input type="text" id="todo" placeholder="Todo" class="form-control" (input)="onTodo($event)"/>
+  <input type="text" id="description" placeholder="Description" class="mt-4 form-control"
+         (input)="onDescription($event)"/>
 
-
-<div style="width: 100vw; height: 100vh">
-  <h4 [ngStyle]="styles" style="position: relative; z-index: 100" class="text-center mt-5">Who is me? who is you? we are happy meyou wkwkwk</h4>
-  <h4 [innerHTML]="fullname" style="position: relative; z-index: 100" class="text-center mt-5"></h4>
-
-  <button class="btn btn-primary" [disabled]="isDisabled">tekan aku</button>
-
-  <h1 [ngStyle]="numStyles">{{num}}</h1>
-
-  <button (click)="increment()" class="btn btn-secondary">Increment</button>
-
-
-
-  <img [src]="imgSrc" [alt]="imgAlt" class="card-img-overlay" style="position: absolute; z-index: -999; height: 100vh; width: 100vw">
-  <app-login></app-login>
-
-  <div class="mt-5">
-    <span (mouseover)="mOver()" (mouseout)="mOut()" [innerHTML]="message" style="color: gray"></span>
-  </div>
-
-  <input type="text" class="form-control" id="name" (input)="onKeyPress($event)">
-
-  <h1>{{name}}</h1>
-
-  <br><br>
-
-  <ul>
-    <li *ngFor="let t of tes; let i = index">{{t}}</li>
-  </ul>
-
-  <p *ngIf="isActive; else inActiveTag">ACTIVE</p>
-
-  <ng-template #inActiveTag>
-    <p>INACTIVE</p>
-  </ng-template>
-
-  <br><br><br><br>
+  <button type="button" (click)="tambah()" class="btn btn-tambah mt-4 px-5 border align-self-start" style="width: fit-content; font-weight: bold">
+    Tambah
+  </button>
 </div>
+
+<app-child [childTitle]="title" [todoList]="todoList"></app-child>
 
