@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChildComponent } from './child.component';
+import { AnimeFormComponent } from './anime-form.component';
 
-describe('ChildComponent', () => {
-  let component: ChildComponent;
-  let fixture: ComponentFixture<ChildComponent>;
+describe('AnimeFormComponent', () => {
+  let component: AnimeFormComponent;
+  let fixture: ComponentFixture<AnimeFormComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ChildComponent]
+      declarations: [AnimeFormComponent]
     });
-    fixture = TestBed.createComponent(ChildComponent);
+    fixture = TestBed.createComponent(AnimeFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
