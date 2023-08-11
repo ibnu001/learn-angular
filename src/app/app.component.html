@@ -1,20 +1,10 @@
-<div class="p-5">
+<div class="p-2">
   <h1>PARENT COMPONENT</h1>
 
-  <!--<div class="d-flex flex-column mt-3">-->
-  <!--  <input type="text" id="todo" placeholder="Todo" class="form-control" (input)="onTodo($event)"/>-->
-  <!--  <input type="text" id="description" placeholder="Description" class="mt-4 form-control"-->
-  <!--         (input)="onDescription($event)"/>-->
+  <p>{{namePar}}</p>
 
-  <!--  <button type="button" (click)="tambah()" class="btn btn-tambah mt-4 px-5 border align-self-start" style="width: fit-content; font-weight: bold">-->
-  <!--    Tambah-->
-  <!--  </button>-->
-  <!--</div>-->
+  <hr>
 
-  <!--<app-child [childTitle]="title" [todoList]="todoList"></app-child>-->
-
-  <p>INI CLICK COUNT PARENT : {{clickCount}}</p>
-  <p>INI PERSON PARENT : {{personParent.name.toUpperCase()}}, {{personParent.age.toUpperCase()}}</p>
-  <app-child (onChanged)="onCountChanged($event)" (myEvent)="handleEvent($event)"></app-child>
+  <app-child [(nameChild)]="namePar"></app-child>
 </div>
 

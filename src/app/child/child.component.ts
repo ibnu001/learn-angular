@@ -7,50 +7,63 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class ChildComponent {
 
-  @Input()
-  childTitle: string = ''
+  id :any
+  intervalId: any
 
   @Input()
-  todoList: { todo: string, desc: string, isDone: boolean, doneLabel: string}[] = []
-
-  isDone(i: number) {
-    const todoItem = this.todoList[i]
-    todoItem.isDone = !todoItem.isDone
-
-    if (todoItem.isDone) {
-      todoItem.doneLabel = 'Cancel'
-    } else {
-      todoItem.doneLabel = 'Done'
-    }
-  }
-
-  delete(i: number) {
-    this.todoList.splice(i, 1)
-  }
+  nameChild: string = ''
 
   @Output()
-  onChanged = new EventEmitter<number>()
+  nameChildChange: EventEmitter<string> = new EventEmitter<string>()
 
-  clickCount : number = 0
-
-  countChange() {
-    this.clickCount++
-    this.onChanged.emit(this.clickCount)
+  nameChanges() {
+    this.nameChildChange.emit(this.nameChild)
   }
 
-  @Output()
-  myEvent = new EventEmitter<{}>()
-
-  person = {
-    name: 'ibnu',
-    age: 'Immortal'
-  }
-
-  emitEvent() {
-    // this.myEvent.emit('Event from Child by Fauzan')
-    this.myEvent.emit(this.person)
+  tick() {
+    this.intervalId = setInterval(() => {
+      this.id = new Date()
+      console.log(this.id)
+    },1000)
   }
 
 
+  constructor() {
+    console.log('constructor')
+  }
 
+  ngOnInit() {
+    console.log('On Init')
+    // this.tick()
+  }
+
+  ngOnChanges() {
+    console.log('on changes')
+  }
+
+  ngDoCheck() {
+    console.log('do check')
+  }
+
+  ngAfterContentInit() {
+    console.log('after content init')
+  }
+
+  ngAfterContentChecked() {
+    console.log('after content check')
+  }
+
+  ngAfterViewInit() {
+    console.log('after view init')
+  }
+
+  ngAfterViewChecked() {
+    console.log('after view check')
+  }
+
+  ngOnDestroy() {
+    console.log('on destroy')
+    clearInterval(this.intervalId)
+    console.log('interval cleared')
+  }
 }

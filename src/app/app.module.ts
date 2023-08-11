@@ -12,6 +12,7 @@ import { SidebarComponent } from './shared.component/sidebar/sidebar.component';
 import { BodyComponent } from './shared.component/body/body.component';
 import {LoginComponent} from "./auth/login/login.component";
 import { ChildComponent } from './child/child.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ChildComponent } from './child/child.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
