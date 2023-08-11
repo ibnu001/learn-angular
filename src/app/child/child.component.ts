@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,9 +7,11 @@ import {Component, Input} from '@angular/core';
 })
 export class ChildComponent {
 
-  @Input() childTitle: string = ''
+  @Input()
+  childTitle: string = ''
 
-  @Input() todoList: { todo: string, desc: string, isDone: boolean, doneLabel: string}[] = []
+  @Input()
+  todoList: { todo: string, desc: string, isDone: boolean, doneLabel: string}[] = []
 
   isDone(i: number) {
     const todoItem = this.todoList[i]
@@ -25,5 +27,30 @@ export class ChildComponent {
   delete(i: number) {
     this.todoList.splice(i, 1)
   }
+
+  @Output()
+  onChanged = new EventEmitter<number>()
+
+  clickCount : number = 0
+
+  countChange() {
+    this.clickCount++
+    this.onChanged.emit(this.clickCount)
+  }
+
+  @Output()
+  myEvent = new EventEmitter<{}>()
+
+  person = {
+    name: 'ibnu',
+    age: 'Immortal'
+  }
+
+  emitEvent() {
+    // this.myEvent.emit('Event from Child by Fauzan')
+    this.myEvent.emit(this.person)
+  }
+
+
 
 }

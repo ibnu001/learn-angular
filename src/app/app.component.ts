@@ -11,7 +11,7 @@ export class AppComponent {
 
   todo: string = ''
   description: string = ''
-  todoList: { todo: string, desc: string, isDone: boolean, doneLabel: string}[] = []
+  todoList: { todo: string, desc: string, isDone: boolean, doneLabel: string }[] = []
 
   onTodo(evTodo: any): void {
     this.todo = evTodo.target.value
@@ -35,6 +35,23 @@ export class AppComponent {
     }
 
     console.log(this.todoList)
+  }
+
+  clickCount: number = 0
+
+  onCountChanged(count: number) {
+    console.log(count)
+    this.clickCount = count
+  }
+
+
+  personParent: { name: string, age: string } = {
+    name : '',
+    age : ''
+  }
+  handleEvent(event: any) {
+    console.log(event)
+    this.personParent = event
   }
 
 }
