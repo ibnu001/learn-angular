@@ -7,7 +7,6 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
 
-  namePar: string = 'data from PARENTT'
-
+  birthday: Date = new Date('1998-02-01')
 
 }
