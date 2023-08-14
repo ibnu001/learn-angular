@@ -1,21 +1,64 @@
-<div class="container">
+<div class="container m-4">
 
-  <form>
+  <form [formGroup]="animeForm" (ngSubmit)="submitData(animeForm.value)">
+
     <div class="form-group mt-2">
       <label for="id">Id</label>
-      <input id="id" type="text" class="form-control" placeholder="Enter Id">
-    </div>
-    <div class="form-group mt-2">
-      <label for="name">Name</label>
-      <input id="name" type="text" class="form-control" placeholder="Enter Name">
-    </div>
-    <div class="form-group mt-2">
-      <label for="cover">Cover</label>
-      <input id="cover" type="text" class="form-control" placeholder="Enter Cover">
+      <input id="id" type="text" class="form-control" placeholder="Enter Id" formControlName="id">
     </div>
 
-    <button class="mt-3 btn btn-primary">Submit</button>
+    <div class="form-group mt-2">
+      <label for="name">Name</label>
+      <input id="name" type="text" class="form-control" placeholder="Enter Name" formControlName="name"
+      appForbiddenName="bob">
+
+      <div *ngIf="form('name').invalid && form('name').dirty || form('name').touched">
+        <div class="alert alert-danger" *ngIf="form('name').errors?.['required']">
+          This field is required
+        </div>
+
+        <div class="alert alert-danger" *ngIf="form('name').errors?.['pattern']">
+          name must number
+        </div>
+
+        <div class="alert alert-danger" *ngIf="form('name').errors?.['forbiddenName']">
+          name must not contains bob
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="cover">Cover</label>
+      <input id="cover" type="text" class="form-control" placeholder="Enter Cover" formControlName="cover">
+
+      <div *ngIf="form('cover').invalid && form('cover').dirty || form('cover').touched">
+
+        <div class="alert alert-danger" *ngIf="form('cover').errors?.['required']">
+          This field is required
+        </div>
+
+        <div class="alert alert-danger" *ngIf="form('cover').errors?.['minlength']">
+          min length is 10
+        </div>
+
+      </div>
+    </div>
+
+    <button type="submit" class="mt-3 btn btn-primary" [disabled]="animeForm.invalid">Submit</button>
 
   </form>
 
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let anime of animes">
+      {{anime.name}}
+      <div class="card">
+        <img src="{{anime.cover}}" alt="anime cover">
+      </div>
+    </div>
+  </div>
+
+  <br><br>
 </div>
