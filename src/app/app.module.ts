@@ -12,6 +12,11 @@ import { AgePipe } from './shared/pipes/age.pipe';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import {TodoService} from "./todo/todo.service";
 import {TodoList2Component} from "./todo/todo-list2/todo-list2.component";
+// import { ComponentAComponent } from './component-a/component-a.component';
+import { ComponentBComponent } from './component-b/component-b.component';
+import { NotFoundComponent } from './shared/component/not-found/not-found.component';
+// import { ChildAComponent } from './component-a/child-a/child-a.component';
+// import { ChildBComponent } from './component-a/child-b/child-b.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +28,11 @@ import {TodoList2Component} from "./todo/todo-list2/todo-list2.component";
     AgePipe,
     TodoListComponent,
     TodoList2Component,
+    // ComponentAComponent,
+    ComponentBComponent,
+    NotFoundComponent,
+    // ChildAComponent,
+    // ChildBComponent,
   ],
   imports: [
     BrowserModule,
