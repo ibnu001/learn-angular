@@ -9,6 +9,9 @@ import {AnimeListComponent} from './anime/anime-list/anime-list.component';
 import { ForbiddenNameDirective } from './shared/utils/forbidden-name/forbidden-name.directive';
 import { ExponentPipe } from './shared/pipes/exponent.pipe';
 import { AgePipe } from './shared/pipes/age.pipe';
+import { TodoListComponent } from './todo/todo-list/todo-list.component';
+import {TodoService} from "./todo/todo.service";
+import {TodoList2Component} from "./todo/todo-list2/todo-list2.component";
 
 @NgModule({
   declarations: [
@@ -18,6 +21,8 @@ import { AgePipe } from './shared/pipes/age.pipe';
     ForbiddenNameDirective,
     ExponentPipe,
     AgePipe,
+    TodoListComponent,
+    TodoList2Component,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import { AgePipe } from './shared/pipes/age.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
