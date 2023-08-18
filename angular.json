@@ -66,7 +66,8 @@
               "browserTarget": "first-app:build:production"
             },
             "development": {
-              "browserTarget": "first-app:build:development"
+              "browserTarget": "first-app:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

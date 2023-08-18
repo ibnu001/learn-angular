@@ -1,5 +1,5 @@
 export interface ToDo {
-  id: string,
-  name: string,
-  description?: string
+  id?: string,
+  todo: string,
+  description: string
 }

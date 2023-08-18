@@ -1,27 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ComponentAComponent} from "./component-a/component-a.component";
-import {ChildAComponent} from "./component-a/child-a/child-a.component";
-import {ChildBComponent} from "./component-a/child-b/child-b.component";
+import {TodoFormComponent} from "./todo/todo-form/todo-form.component";
+import {TodoListComponent} from "./todo/todo-list/todo-list.component";
 
 const routes: Routes = [
   {
-    path: 'component-a',
-    component: ComponentAComponent,
-    children: [
-      {
-        path: 'child-a',
-        component: ChildAComponent
-      },
-      {
-        path: 'child-b',
-        component: ChildBComponent
-      },
-      {
-        path: 'child-b/:id',
-        component: ChildBComponent
-      },
-    ]
+    path: 'form',
+    component: TodoFormComponent
+  },
+  {
+    path: 'list',
+    component: TodoListComponent
   },
 ];
 

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ComponentBComponent} from "./component-b/component-b.component";
 import {NotFoundComponent} from "./shared/component/not-found/not-found.component";
 
 const routes: Routes = [
@@ -9,12 +8,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule)
   },
   {
-    path: 'component-b',
-    component: ComponentBComponent
-  },
-  {
     path: '',
-    redirectTo: 'component-b',
+    redirectTo: 'list',
     pathMatch: 'full'
   },
   {

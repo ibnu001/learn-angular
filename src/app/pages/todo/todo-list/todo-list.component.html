@@ -1,43 +1,6 @@
-<div class="container py-5">
-
-  <div class="card">
-
-    <div class="card-body">
-
-      <form [formGroup]="todoForm" (ngSubmit)="submitData(todoForm.value)">
-
-        <div class="text-center">
-          <h2>Form Todo List</h2>
-        </div>
-
-        <div class="form-group mt-2">
-          <label for="name">Name</label>
-          <input id="name" type="text" class="form-control" placeholder="Enter Name" formControlName="name">
-
-          <div *ngIf="form('name').invalid && form('name').dirty || form('name').touched">
-            <div class="alert-danger text-danger" *ngIf="form('name').errors?.['required']">
-              This field is required
-            </div>
-          </div>
-
-        </div>
-
-        <div class="form-group mt-2">
-          <label for="description">Description</label>
-          <input id="description" type="text" class="form-control" placeholder="Enter Description"
-                 formControlName="description">
-        </div>
-
-        <div class="mt-4 text-center">
-          <button type="submit" class="btn btn-primary w-25" [disabled]="todoForm.invalid">{{btnSubmit}}</button>
-        </div>
-
-      </form>
-
-    </div>
-  </div>
+<div class="py-3">
+  <button class="btn btn-primary" routerLink="/form">Add Todo</button>
 </div>
-
 
 <div class="container p-3">
   <table class="table table-bordered">
@@ -53,14 +16,13 @@
     <tbody>
     <tr *ngFor="let todo of todos; let i = index">
       <td class="text-center">{{i + 1}}.</td>
-      <td>{{todo.name}}</td>
+      <td>{{todo.todo}}</td>
       <td>{{todo.description}}</td>
       <td class="text-center flex-wrap w-25">
-        <button class="btn btn-outline-danger m-2 px-4" (click)="delete(todos.indexOf(todo))">Delete</button>
-        <button class="btn btn-outline-primary m-2 px-4" (click)="update(todo.id)">Update</button>
+        <button class="btn btn-outline-danger m-2 px-4" (click)="delete(todo.id!)">Delete</button>
+        <button class="btn btn-outline-primary m-2 px-4" (click)="update(todo.id!)">Update</button>
       </td>
     </tr>
     </tbody>
   </table>
-
 </div>
