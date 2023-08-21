@@ -18,19 +18,26 @@ export class TodoListComponent {
   }
 
   todos: ToDo[] = []
+  todosPerPage: ToDo[] = []
 
   ngOnInit() {
     this.getAllTodo()
+    this.getTodosPage(0)
   }
+
 
   getAllTodo() {
     this.service.getTodos().subscribe(
       (res) => {
         this.todos = res;
+        this.totalPage = Math.ceil(res.length / this.size)
+        console.log(this.totalPage)
+
       })
   }
 
   update(id: string) {
+    this.swalLoading()
     this.router.navigateByUrl(`/form?id=${id}`)
   }
 
@@ -68,4 +75,43 @@ export class TodoListComponent {
     })
   }
 
+  currentPage = 0
+  totalPage = 0
+  size = 5
+
+  getTodosPage(currentPage: number) {
+    this.service.getTodosPerPage(currentPage).subscribe((res) => {
+      this.swalLoading()
+      this.todosPerPage = res.data
+    })
+  }
+
+  nextPage() {
+    this.currentPage += 1
+    this.getTodosPage(this.currentPage)
+  }
+
+  prevPage() {
+    this.currentPage -= 1
+    this.getTodosPage(this.currentPage)
+  }
+
+  numberPage(numberPage: number) {
+    this.currentPage = numberPage - 1
+    this.getTodosPage(this.currentPage)
+  }
+
+  pagesArray(): number[] {
+    return Array(this.totalPage).fill(0).map((x, i) => i + 1);
+  }
+
+  swalLoading() {
+    Swal.fire({
+      title: 'Please wait...',
+      timer: 300,
+      didOpen: () => {
+        Swal.showLoading()
+      }
+    })
+  }
 }

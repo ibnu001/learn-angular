@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ToDo} from "./model/todo";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -30,4 +30,10 @@ export class TodoService {
   delete(id: string) {
     return this.http.delete<any>(`/api/todos/${id}`)
   }
+
+  getTodosPerPage(currentPage: number) : Observable<any> {
+    const params = new HttpParams().set('page', currentPage.toString())
+    return this.http.get('/api/todos/perpage', {params})
+  }
 }
+

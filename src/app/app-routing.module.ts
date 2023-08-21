@@ -7,15 +7,7 @@ const routes: Routes = [
     path: '', // kosong karna agar tidak menulis path component-a 2x
     loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule)
   },
-  {
-    path: '',
-    redirectTo: 'list',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: NotFoundComponent
-  }
+
 ];
 
 @NgModule({
