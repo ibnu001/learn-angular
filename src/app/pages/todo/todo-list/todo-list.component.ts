@@ -17,28 +17,15 @@ export class TodoListComponent {
   ) {
   }
 
-  todos: ToDo[] = []
   todosPerPage: ToDo[] = []
 
   ngOnInit() {
-    this.getAllTodo()
     this.getTodosPage(0)
-  }
-
-
-  getAllTodo() {
-    this.service.getTodos().subscribe(
-      (res) => {
-        this.todos = res;
-        this.totalPage = Math.ceil(res.length / this.size)
-        console.log(this.totalPage)
-
-      })
   }
 
   update(id: string) {
     this.swalLoading()
-    this.router.navigateByUrl(`/form?id=${id}`)
+    this.router.navigateByUrl(`/pages/form?id=${id}`)
   }
 
   delete(id: string) {
@@ -55,7 +42,7 @@ export class TodoListComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         this.service.delete(id).subscribe(() => {
-          this.getAllTodo()
+          this.getTodosPage(this.currentPage)
         })
         Swal.fire(
           'Deleted!',
@@ -83,6 +70,7 @@ export class TodoListComponent {
     this.service.getTodosPerPage(currentPage).subscribe((res) => {
       this.swalLoading()
       this.todosPerPage = res.data
+      this.totalPage = res.totalPages
     })
   }
 

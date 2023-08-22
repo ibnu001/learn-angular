@@ -13,15 +13,15 @@ const routes: Routes = [
     path: 'list',
     component: TodoListComponent
   },
-  {
-    path: '',
-    redirectTo: 'list',
-    pathMatch: 'full'
-  },
-  {
-    path: '**',
-    component: NotFoundComponent
-  }
+  // {
+  //   path: '',
+  //   redirectTo: 'list',
+  //   pathMatch: 'full'
+  // },
+  // {
+  //   path: '**',
+  //   component: NotFoundComponent
+  // }
 ];
 
 @NgModule({

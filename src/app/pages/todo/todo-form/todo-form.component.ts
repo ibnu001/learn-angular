@@ -49,7 +49,7 @@ export class TodoFormComponent {
 
   addTodo(todo: ToDo) {
     this.service.create(todo).subscribe((res) => {
-      this.router.navigateByUrl('/list')
+      this.router.navigateByUrl('/pages/list')
     })
 
     this.clearForm()
@@ -63,7 +63,7 @@ export class TodoFormComponent {
     if (this.editMode) {
 
       this.service.update(data).subscribe()
-      this.router.navigateByUrl('/list')
+      this.router.navigateByUrl('/pages/list')
 
       this.btnSubmit = 'Submit'
 
